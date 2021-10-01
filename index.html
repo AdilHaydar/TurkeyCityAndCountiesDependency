@@ -34,7 +34,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <script>
-     var cities = [
+    var cities = [
       {
         "name": "adana",
         "plate": "01",
@@ -1654,7 +1654,7 @@
     cities.map(item => {
       var option = document.createElement('option')
       option.textContent = item.name.toUpperCase()
-      option.value = item.name.toLowerCase()
+      option.value = item.name
       city_box.insertBefore(option, city_box.childNodes[city_box.childElementCount+1])
     })
 
@@ -1664,6 +1664,7 @@
       var city = el.value.toLowerCase()
 
       let cityInfo = cities.find(val => val.name === city)
+      console.log(cityInfo);
       var counties = cityInfo.counties
 
       for (i = length-1; i>=0; i--){
