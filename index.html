@@ -34,7 +34,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <script>
-      var cities = [
+     var cities = [
       {
         "name": "adana",
         "plate": "01",
@@ -1650,11 +1650,11 @@
     ]
 
     var city_box = document.getElementById('comboBoxCity')
-    
+
     cities.map(item => {
       var option = document.createElement('option')
       option.textContent = item.name.toUpperCase()
-      option.value = item.name.toUpperCase()
+      option.value = item.name.toLowerCase()
       city_box.insertBefore(option, city_box.childNodes[city_box.childElementCount+1])
     })
 
@@ -1662,23 +1662,22 @@
       var county_box = document.getElementById('comboBoxCounty')
       var length = county_box.options.length
       var city = el.value.toLowerCase()
-      
+
       let cityInfo = cities.find(val => val.name === city)
       var counties = cityInfo.counties
 
       for (i = length-1; i>=0; i--){
         county_box.options[i] = null
       }
-      
+
       counties.sort()
       counties.map(item => {
         var option = document.createElement('option')
         option.textContent = item.toUpperCase()
-        option.value = item.toUpperCase()
+        option.value = item.toLowerCase()
         county_box.insertBefore(option, county_box.childNodes[county_box.childElementCount+1])
       })
     }
-
     </script>
   </body>
 </html>
